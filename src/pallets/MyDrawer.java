@@ -4,8 +4,8 @@
  */
 package pallets;
 
-import gui.Dashboard;
-import gui.Products;
+import form.Dashboard;
+import form.Products;
 import main.FormManager;
 import raven.drawer.component.SimpleDrawerBuilder;
 import raven.drawer.component.footer.SimpleFooterData;
@@ -23,11 +23,23 @@ import raven.swing.AvatarIcon;
  */
 public class MyDrawer extends SimpleDrawerBuilder {
 
+    private String title = "";
+    private String description = "";
+
+    public MyDrawer() {
+    }
+
+    public MyDrawer(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
+
     @Override
     public SimpleHeaderData getSimpleHeaderData() {
         return new SimpleHeaderData().setIcon(new AvatarIcon(getClass().getResource("/images/profile.jpeg"), 60, 60, 999))
-                .setTitle("Vito  Andareas Manik")
-                .setDescription("manik@gmail.com");
+                .setTitle(title)
+                .setDescription(description);
     }
 
     @Override

@@ -3,17 +3,18 @@ package models;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class DatabaseManager {
 
-    private static String url = "jdbc:postgresql://localhost/db_cashier?user=manik";
+    private static final String DATABASE_URL = "jdbc:postgresql://localhost/db_cashier?user=manik";
 
     public static Connection getConnection() {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection(url);
+            conn = DriverManager.getConnection(DATABASE_URL);
         } catch (SQLException e) {
-            System.err.println("Error creating connection: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error creating connection: " + e.getMessage());
 
         }
         return conn;

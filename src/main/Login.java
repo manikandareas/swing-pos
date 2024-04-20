@@ -7,9 +7,10 @@ package main;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLaf;
+import entities.UsersEntity;
 import java.awt.Color;
 import javax.swing.UIManager;
-import models.Users;
+import models.UsersModel;
 
 /**
  *
@@ -91,6 +92,7 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnLoginMouseClicked(evt);
@@ -139,7 +141,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
      
      
-        Users session = Users.getSession(txtUsername.getText(), String.valueOf(passPassword.getPassword()));
+        UsersEntity session = UsersModel.getSession(txtUsername.getText(), String.valueOf(passPassword.getPassword()));
       
         if (!session.getUsername().isEmpty()) {
             FormManager formManager = new FormManager(session);

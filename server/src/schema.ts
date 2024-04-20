@@ -1,9 +1,17 @@
 import { integer, pgTable, serial, text, uuid } from "drizzle-orm/pg-core";
 
-export const employee = pgTable("users", {
+export const users = pgTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
   username: text("name").notNull(),
   hashedPassword: text("hashed_password").notNull(),
+});
+
+export const products = pgTable("products", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  stock: integer("stock").notNull(),
+  price: integer("price").notNull(),
+  image: text("image").notNull(),
 });
 
 // export const members = pgTable("members", {
